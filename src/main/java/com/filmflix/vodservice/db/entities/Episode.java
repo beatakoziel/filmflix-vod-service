@@ -2,24 +2,12 @@ package com.filmflix.vodservice.db.entities;
 
 import lombok.Builder;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @Entity
 @Builder
-public class Episode {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String title;
-
-    @Column(nullable = false)
-    private String description;
-
-    @Column(nullable = false)
-    private String resourceUri;
-
+public class Episode extends Resource {
     @Column(nullable = false)
     private long creditsStartTimeInSeconds;
 
