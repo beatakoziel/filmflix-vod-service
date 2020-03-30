@@ -3,6 +3,7 @@ package com.filmflix.vodservice.db.entities;
 import com.filmflix.vodservice.db.enums.UserRole;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "filmflix_user")
@@ -19,6 +20,9 @@ public class User {
 
     @Column(nullable = false)
     private boolean blocked = false;
+
+    @Column(nullable = false)
+    private Date planPaymentDay;
 
     @Column(nullable = false)
     private boolean planPaid;

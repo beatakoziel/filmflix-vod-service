@@ -16,5 +16,4 @@ public class Resource {
 
     @Column(nullable = false)
     private String resourceUri;
-
 }
