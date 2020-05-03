@@ -1,11 +1,15 @@
 package com.filmflix.vodservice.db.entities;
 
-import lombok.Builder;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
