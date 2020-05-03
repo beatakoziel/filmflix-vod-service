@@ -1,8 +1,15 @@
 package com.filmflix.vodservice.db.entities;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Opinion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

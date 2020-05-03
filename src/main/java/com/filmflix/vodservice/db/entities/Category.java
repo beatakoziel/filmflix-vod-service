@@ -4,10 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Setter
-@Getter
 @Entity
 @Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Category {
