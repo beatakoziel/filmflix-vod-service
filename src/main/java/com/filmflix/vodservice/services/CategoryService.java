@@ -44,13 +44,13 @@ public class CategoryService {
     }
 
     public Integer deleteCategory(Integer categoryId) {
-        validateSeriesWithCategory(categoryId);
-        validateMoviesWithCategory(categoryId);
+        //validateSeriesWithCategory(categoryId);
+        //validateMoviesWithCategory(categoryId);
         categoryRepository.deleteById(categoryId);
         return categoryId;
     }
 
-    private void validateSeriesWithCategory(Integer categoryId) {
+    /*private void validateSeriesWithCategory(Integer categoryId) {
         seriesRepository.findAll().stream()
                 .filter(series -> series.getCategory().getId().equals(categoryId))
                 .findAny()
@@ -66,5 +66,5 @@ public class CategoryService {
                 .ifPresent(series -> {
                     throw new CategoryNotEmptyException();
                 });
-    }
+    }*/
 }
