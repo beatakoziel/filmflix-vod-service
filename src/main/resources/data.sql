@@ -4,7 +4,7 @@ replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(1,
         'Deadpool',
         'Były żołnierz oddziałów specjalnych zostaje poddany niebezpiecznemu eksperymentowi. Niebawem uwalnia swoje alter ego i rozpoczyna polowanie na człowieka, który niemal zniszczył jego życie.',
-        'https://vwaw193.cda.pl/BWoqbuvooLbwDkmO1rKUMQ/1588568147/hdcfb16c0e049b3cab0d264e9f773b6fe5.mp4',
+        '.videos/',
         'https://fwcdn.pl/fpo/46/75/514675/7762491.3.jpg',
         'Komedia');
 
@@ -90,56 +90,77 @@ values(11,
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(12,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Snajper: niewidzialny zabójca',
+        'Dwaj snajperzy otrzymują zadanie ochrony gazociągu.',
+        'https://vwaw109.cda.pl/dudCx6sKHx87IWALoBKKAw/1588584326/hd32294106241ecc176b3c55b12e5ec248.mp4',
+        'https://fwcdn.pl/fpo/90/27/759027/7792753.3.jpg',
+        'Akcja');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(13,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Bóg wojny',
+        'Azja, połowa XVI wieku. Przedłużający się konflikt Chin z japońskimi piratami zmusza dwóch chińskim generałów do podjęcia walki na niespotykaną do tej pory skalę.',
+        'https://vger004.cda.pl/ZhX_ETGrl0sViTia4AyozA/1588584510/hdbb3e64dcff922f8a2ea5ee9ee75ec73d.mp4',
+        'https://fwcdn.pl/fpo/68/24/796824/7817838.3.jpg',
+        'Akcja');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(14,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Hellboy: Złota armia',
+        'Hellboy musi stawić czoła zbudzonej przez okrutnego księcia armii niepokonanych bestii. Pomogą mu w tym przyjaciele o paranormalnych zdolnościach. ',
+        'https://vger071.cda.pl/2kvZYaLTrrg5DgG00-Wzsg/1588584681/sd2yei89l0dci0a8wtkn43qoy9m5ztja8f357f52034f7d6ed5c67f4c76e0bf998a.mp4',
+        'https://fwcdn.pl/fpo/55/96/135596/7295586.3.jpg',
+        'Akcja');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(15,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Szybcy i wściekli: Tokio Drift',
+        'Pasjonat nielegalnych wyścigów samochodowych ucieka przed więzieniem do Tokio. Ale tutaj też organizowane są niebezpieczne rajdy.',
+        'https://vger033.cda.pl/Qmu-y_ayS1LWK9xLzZYuUg/1588584841/sdd8fff4d2a4b26c0a3a110bb670fc71d0e3fb1f70413046a1e00a136db7532fb0.mp4',
+        'https://fwcdn.pl/fpo/92/15/119215/7124871.3.jpg',
+        'Akcja');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(16,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Matrix',
+        'Haker komputerowy Neo dowiaduje się od tajemniczych rebeliantów, że świat, w którym żyje, jest tylko obrazem przesyłanym do jego mózgu przez roboty.',
+        'https://vwaw675.cda.pl/YRIAdLw3R-_ydzSQuWbJ5w/1588585014/hdc7d3913e6aa7d722f9ebb6c6bd91d2e1.mp4',
+        'https://fwcdn.pl/fpo/06/28/628/7685907.3.jpg',
+        'Akcja');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(17,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Podziemny krąg',
+        'Dwóch mężczyzn znudzonych rutyną zakłada klub, w którym co tydzień odbywają się walki na gołe pięści.',
+        'https://vwaw028.cda.pl/eivnrE0NCx_Uqg064ZbdhQ/1588585151/hdb3d4b91157f0a391feddc633796a09e2dc5939e71809ccd1bd3a98ca46f5a4e9.mp4',
+        'https://fwcdn.pl/fpo/08/37/837/7742670.3.jpg',
+        'Thriller');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(18,
-        '',
-        '',
-        '',
-        '',
-        '');
+        'Incepcja',
+        'Szeryf federalny Daniels stara się dowiedzieć, jakim sposobem z zamkniętej celi w pilnie strzeżonym szpitalu dla chorych psychicznie przestępców zniknęła pacjentka.',
+        'https://vwaw332.cda.pl/VQV-DEAUn0HddBMcmZW3HA/1588585300/hd3fcabc5dfc35b8e2261122f8cb4f43e6a6ed9d18f5bc925a35f4c27d53c84017.mp4',
+        'https://fwcdn.pl/fpo/42/56/464256/7565178.3.jpg',
+        'Thriller');
+replace into movie (id, title, description, resource_uri, cover_uri, category)
+values(19,
+        'Efekt motyla',
+        'Evan, który potrafi podróżować w czasie, przekona się, że nawet najdrobniejsza zmiana w przeszłości ma kolosalny wpływ na teraźniejszość.',
+        'https://vwaw126.cda.pl/jLn_J4aBRKANIMCnLGXVpA/1588585397/sdf32a90f67a9da9f34fdaf3d989073e5b.mp4',
+        'https://fwcdn.pl/fpo/02/52/40252/7788918.3.jpg',
+        'Thriller');
+replace into movie (id, title, description, resource_uri, cover_uri, category)
+values(20,
+        'Dziewczyna z tatuażem',
+        'Ekranizacja powieści Stiega Larssona. Dziennikarz oskarżony o zniesławienie otrzymuje zlecenie zbadania zaginięcia przed 40 laty 16-letniej Harriet Vanger.',
+        'https://vwaw580.cda.pl/Z41nAnHSPnnAeir00x8aiQ/1588585485/sd08e53604ca9da8f4e95e17c45ac8dd9d.mp4',
+        'https://fwcdn.pl/fpo/56/37/565637/7748976.3.jpg',
+        'Thriller');
+replace into movie (id, title, description, resource_uri, cover_uri, category)
+values(21,
+        'Więzień labiryntu',
+        'Nastoletni Thomas zostaje uwięziony w tajemniczym labiryncie, z którego próbuje się wydostać.',
+        'https://vwaw690.cda.pl/Z0eqrQQimBHSEWnmS68jrA/1588585616/hdfaa02e83fd1412134914498d31056e99d17d0562eb239df2baddbbaeb1c5b66e.mp4',
+        'https://fwcdn.pl/fpo/97/57/609757/7601693.3.jpg',
+        'Thriller');

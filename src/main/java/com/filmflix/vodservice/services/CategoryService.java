@@ -5,7 +5,6 @@ import com.filmflix.vodservice.db.repositories.CategoryRepository;
 import com.filmflix.vodservice.db.repositories.MovieRepository;
 import com.filmflix.vodservice.db.repositories.SeriesRepository;
 import com.filmflix.vodservice.utilities.CategoryAlreadyExistsException;
-import com.filmflix.vodservice.utilities.CategoryNotEmptyException;
 import com.filmflix.vodservice.utilities.CategoryNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

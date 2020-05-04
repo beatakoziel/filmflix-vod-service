@@ -45,4 +45,7 @@ public class Movie {
 
 /*    @ManyToMany
     private List<Tag> tags;*/
+
+    @OneToMany
+    private List<Opinion> opinions;
 }
