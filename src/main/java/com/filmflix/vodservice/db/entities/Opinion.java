@@ -17,8 +17,8 @@ public class Opinion {
 
     private String comment;
 
-    @Column(nullable = false)
-    private byte starsNumber;
+    /*@Column(nullable = false)
+    private byte starsNumber;*/
 
     @ManyToOne
     private User user;
