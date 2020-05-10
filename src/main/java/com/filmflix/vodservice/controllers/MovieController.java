@@ -17,10 +17,11 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-
 @RestController
 @AllArgsConstructor
 @RequestMapping("/movies")
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8081",
+        "http://localhost:8082", "http://localhost:8083"})
 public class MovieController {
 
     private final MovieService movieService;
@@ -28,7 +29,7 @@ public class MovieController {
     private final OpinionService opinionService;
 
     @GetMapping(produces = "application/json")
-    public ResponseEntity<List<Movie>> getMovies(Authentication authentication) {
+    public ResponseEntity<List<Movie>> getMovies() {
         return ResponseEntity.ok(movieService.getMovies());
     }
 
