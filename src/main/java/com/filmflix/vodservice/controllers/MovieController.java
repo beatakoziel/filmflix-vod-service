@@ -5,12 +5,18 @@ import com.filmflix.vodservice.db.entities.Opinion;
 import com.filmflix.vodservice.db.entities.User;
 import com.filmflix.vodservice.services.MovieService;
 import com.filmflix.vodservice.services.OpinionService;
+import com.filmflix.vodservice.services.VideoService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import lombok.val;
+import org.springframework.core.io.UrlResource;
+import org.springframework.core.io.support.ResourceRegion;
+import org.springframework.http.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
+
 
 @RestController
 @AllArgsConstructor
@@ -18,6 +24,7 @@ import java.util.List;
 public class MovieController {
 
     private final MovieService movieService;
+    private final VideoService videoService;
     private final OpinionService opinionService;
 
     @GetMapping(produces = "application/json")
@@ -31,10 +38,18 @@ public class MovieController {
     }
 
     @PutMapping("/{movieId}/opinions")
-    private void addOpinion(Authentication authentication, String comment, @PathVariable Long movieId) {
-        System.out.println(((User) authentication.getPrincipal()).getUsername());
-        System.out.println(comment);
-        System.out.println(movieId);
+    public void addOpinion(Authentication authentication, String comment, @PathVariable Long movieId) {
         opinionService.addOpinion(((User) authentication.getPrincipal()).getUsername(), comment, movieId);
+    }
+
+    @GetMapping("/videos/{name}")
+    public ResponseEntity<ResourceRegion> getVideo(@PathVariable String name, @RequestHeader HttpHeaders headers) throws IOException {
+        val video = new UrlResource("file:videos/" + name + ".mp4");
+        val region = videoService.resourceRegion(video, headers);
+        return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
+                .contentType(MediaTypeFactory
+                        .getMediaType(video)
+                        .orElse(MediaType.APPLICATION_OCTET_STREAM))
+                .body(region);
     }
 }
