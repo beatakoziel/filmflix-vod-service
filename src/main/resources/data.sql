@@ -68,8 +68,8 @@ replace into movie (id, title, description, resource_uri, cover_uri, category)
 values(9,
         'Wojownicze żółwie ninja 3',
         'Żółwie Ninja ruszają na ratunek swojej przyjaciółce, April, która nieumyślnie przeniosła się w czasie do siedemnastowiecznej Japonii, ogarniętej wojną partyzantów z feudalną władzą.',
-        'https://vwaw123.cda.pl/_L1cIR4wMmOXpI6sYLwfQw/1588570236/hd2fa28a0a56e4b4423040cae18c070d1f.mp4',
         'Zolwie',
+        'https://static.posters.cz/image/750/plakaty/wojownicze-zolwie-ninja-2-group-i30386.jpg',
         'Komedia');
 
 replace into movie (id, title, description, resource_uri, cover_uri, category)
