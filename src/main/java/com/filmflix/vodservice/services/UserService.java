@@ -24,6 +24,12 @@ public class UserService implements UserDetailsService {
         userRepository.save(userMapper.mapToEntity(registerRequest)).getId();
     }
 
+    public void payStreamingPlan(String username){
+        User user = getUser(username);
+        user.setPlanPaid(true);
+        userRepository.save(user);
+    }
+
     public User getUser(String username) {
         return userRepository.findByEmail(username)
                 .orElseThrow(() -> new UserNotFoundException(username));

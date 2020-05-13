@@ -26,7 +26,7 @@ public class UserMapper {
                 .email(in.getUsername())
                 .password(passwordEncoder.encode(in.getPassword()))
                 .blocked(false)
-                .planPaid(true)
+                .planPaid(false)
                 .role(UserRole.USER)
                 .build();
     }
