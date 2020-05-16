@@ -3,6 +3,7 @@ package com.filmflix.vodservice.services;
 import com.filmflix.vodservice.db.entities.Movie;
 import com.filmflix.vodservice.db.entities.Opinion;
 import com.filmflix.vodservice.db.repositories.MovieRepository;
+import com.filmflix.vodservice.utilities.exceptions.MovieNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,7 @@ import java.util.List;
 import static com.filmflix.vodservice.utilities.TestBuilders.buildMovie;
 import static com.filmflix.vodservice.utilities.TestBuilders.buildOpinion;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -56,6 +58,12 @@ public class MovieServiceTest {
     public void getOpinions_shouldReturnListWithOneOpinion() {
         List<Opinion> opinions = movieService.getMovieOpinions(1L);
         assertThat(opinions.size()).isEqualTo(1L);
+    }
+
+    @Test
+    public void getOpinions_shouldReturnMovieNotFoundException() {
+        assertThrows(MovieNotFoundException.class,
+                () -> movieService.getMovieOpinions(2L));
     }
 
 }

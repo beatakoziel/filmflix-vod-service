@@ -4,6 +4,7 @@ import com.filmflix.vodservice.db.entities.Movie;
 import com.filmflix.vodservice.db.entities.Opinion;
 import com.filmflix.vodservice.db.entities.User;
 import com.filmflix.vodservice.db.enums.UserRole;
+import com.filmflix.vodservice.dtos.requests.RegisterRequest;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,14 @@ public class TestBuilders {
                 .role(UserRole.USER)
                 .planPaid(false)
                 .blocked(false)
+                .build();
+    }
+
+    public static RegisterRequest buildRegisterRequest(String username, String password) {
+        return RegisterRequest.builder()
+                .username(username)
+                .password(USER_TEST_PASSWORD)
+                .repeatPassword(password)
                 .build();
     }
 

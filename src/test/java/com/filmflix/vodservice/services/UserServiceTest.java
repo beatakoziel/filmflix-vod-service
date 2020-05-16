@@ -17,12 +17,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
+import static com.filmflix.vodservice.utilities.TestBuilders.buildRegisterRequest;
 import static com.filmflix.vodservice.utilities.TestBuilders.buildUser;
 import static com.filmflix.vodservice.utilities.TestConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -52,47 +52,40 @@ public class UserServiceTest {
     @Test
     public void registerUser_shouldThrowPasswordsDontMatchException() {
         assertThrows(PasswordsDontMatchException.class, () ->
-                userService.registerUser(buildRegisterRequest(USER_WRONG_REPEAT_PASS_TEST)));
+                userService.registerUser(buildRegisterRequest(USER_TEST_EMAIL, USER_WRONG_REPEAT_PASS_TEST)));
     }
 
     @Test
     public void registerUser_shouldReturnUserResponse() {
-        assertThat(userService.registerUser(buildRegisterRequest(USER_TEST_PASSWORD)))
+        assertThat(userService.registerUser(buildRegisterRequest(USER_TEST_EMAIL, USER_TEST_PASSWORD)))
                 .isInstanceOf(UserResponse.class);
     }
 
     @Test
-    public void getUser_shouldReturnUser(){
+    public void getUser_shouldReturnUser() {
         User user = userService.getUser(USER_TEST_EMAIL);
         assertThat(user).isNotNull();
         assertThat(user.getUsername()).isEqualTo(USER_TEST_EMAIL);
     }
 
     @Test
-    public void getUser_shouldThrowUserNotFoundException(){
+    public void getUser_shouldThrowUserNotFoundException() {
         assertThrows(UserNotFoundException.class, () -> userService.getUser(USER_TEST_WRONG_EMAIL));
     }
 
     @Test
-    public void loadUserByUsername_shouldReturnUserDetails(){
+    public void loadUserByUsername_shouldReturnUserDetails() {
         UserDetails userDetails = userService.loadUserByUsername(USER_TEST_EMAIL);
         assertThat(userDetails).isNotNull();
         assertThat(userDetails.getUsername()).isEqualTo(USER_TEST_EMAIL);
     }
 
     @Test
-    public void getUserResponse_shouldReturnUserResponse(){
+    public void getUserResponse_shouldReturnUserResponse() {
         UserResponse userResponse = userService.getUserResponse(USER_TEST_EMAIL);
         assertThat(userResponse).isNotNull();
         assertThat(userResponse.getEmail()).isEqualTo(USER_TEST_EMAIL);
         assertThat(userResponse.isPlanPaid()).isEqualTo(false);
     }
 
-    private RegisterRequest buildRegisterRequest(String password) {
-        return RegisterRequest.builder()
-                .username(USER_TEST_EMAIL)
-                .password(USER_TEST_PASSWORD)
-                .repeatPassword(password)
-                .build();
-    }
 }
