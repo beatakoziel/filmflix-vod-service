@@ -1,4 +1,4 @@
-package com.filmflix.vodservice.dto;
+package com.filmflix.vodservice.dtos.requests;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

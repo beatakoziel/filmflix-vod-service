@@ -1,4 +1,4 @@
-package com.filmflix.vodservice.dtos;
+package com.filmflix.vodservice.dtos.responses;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -3,7 +3,8 @@ package com.filmflix.vodservice.utilities;
 import com.filmflix.vodservice.db.entities.User;
 import com.filmflix.vodservice.db.enums.UserRole;
 import com.filmflix.vodservice.db.repositories.UserRepository;
-import com.filmflix.vodservice.dtos.RegisterRequest;
+import com.filmflix.vodservice.dtos.requests.RegisterRequest;
+import com.filmflix.vodservice.dtos.responses.UserResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,6 +29,13 @@ public class UserMapper {
                 .blocked(false)
                 .planPaid(false)
                 .role(UserRole.USER)
+                .build();
+    }
+
+    public UserResponse mapToResponse(User user){
+        return UserResponse.builder()
+                .email(user.getEmail())
+                .planPaid(user.isPlanPaid())
                 .build();
     }
 }

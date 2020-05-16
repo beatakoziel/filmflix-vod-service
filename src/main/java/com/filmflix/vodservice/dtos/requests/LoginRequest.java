@@ -1,4 +1,4 @@
-package com.filmflix.vodservice.dtos;
+package com.filmflix.vodservice.dtos.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
+public class LoginRequest {
 
     @NotBlank
     @NotNull
@@ -21,9 +21,5 @@ public class RegisterRequest {
     @NotBlank
     @NotNull
     private String password;
-
-    @NotBlank
-    @NotNull
-    private String repeatPassword;
 
 }

@@ -1,12 +1,19 @@
-package com.filmflix.vodservice.dtos;
+package com.filmflix.vodservice.dtos.requests;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.Year;
-import java.util.List;
 
-public class MovieRequest extends ResourceRequest {
+public class SeriesRequest {
+    @NotNull
+    @NotBlank
+    private String title;
+
+    @NotNull
+    @NotBlank
+    private String description;
+
+    @NotNull
     @NotBlank
     private String coverUri;
 
@@ -20,10 +27,4 @@ public class MovieRequest extends ResourceRequest {
 
     @NotNull
     private Year year;
-
-    @NotNull
-    private Integer categoryId;
-
-    @NotEmpty
-    private List<Integer> tagsIds;
 }

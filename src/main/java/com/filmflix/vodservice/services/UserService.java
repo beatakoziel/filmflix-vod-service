@@ -2,7 +2,8 @@ package com.filmflix.vodservice.services;
 
 import com.filmflix.vodservice.db.entities.User;
 import com.filmflix.vodservice.db.repositories.UserRepository;
-import com.filmflix.vodservice.dtos.RegisterRequest;
+import com.filmflix.vodservice.dtos.requests.RegisterRequest;
+import com.filmflix.vodservice.dtos.responses.UserResponse;
 import com.filmflix.vodservice.utilities.PasswordsDontMatchException;
 import com.filmflix.vodservice.utilities.UserMapper;
 import com.filmflix.vodservice.utilities.UserNotFoundException;
@@ -33,6 +34,10 @@ public class UserService implements UserDetailsService {
     public User getUser(String username) {
         return userRepository.findByEmail(username)
                 .orElseThrow(() -> new UserNotFoundException(username));
+    }
+
+    public UserResponse getUserResponse(String username){
+        return userMapper.mapToResponse(getUser(username));
     }
 
     @Override

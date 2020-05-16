@@ -1,6 +1,7 @@
 package com.filmflix.vodservice.controllers;
 
 import com.filmflix.vodservice.db.entities.User;
+import com.filmflix.vodservice.dtos.responses.UserResponse;
 import com.filmflix.vodservice.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -14,6 +15,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping
+    public UserResponse getUserData(Authentication authentication){
+        return userService.getUserResponse(((User) authentication.getPrincipal()).getUsername());
+    }
 
     @PostMapping("/pay")
     public void addOpinion(Authentication authentication) {

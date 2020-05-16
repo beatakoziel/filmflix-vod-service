@@ -1,9 +1,9 @@
 package com.filmflix.vodservice.controllers;
 
 import com.filmflix.vodservice.configurations.security.jwt.JwtUtil;
-import com.filmflix.vodservice.dtos.LoginRequest;
-import com.filmflix.vodservice.dtos.RegisterRequest;
-import com.filmflix.vodservice.dtos.TokenResponse;
+import com.filmflix.vodservice.dtos.requests.LoginRequest;
+import com.filmflix.vodservice.dtos.requests.RegisterRequest;
+import com.filmflix.vodservice.dtos.responses.TokenResponse;
 import com.filmflix.vodservice.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
