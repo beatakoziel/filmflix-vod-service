@@ -5,8 +5,8 @@ import com.filmflix.vodservice.db.repositories.UserRepository;
 import com.filmflix.vodservice.dtos.requests.RegisterRequest;
 import com.filmflix.vodservice.dtos.responses.UserResponse;
 import com.filmflix.vodservice.utilities.exceptions.PasswordsDontMatchException;
-import com.filmflix.vodservice.utilities.mappers.UserMapper;
 import com.filmflix.vodservice.utilities.exceptions.UserNotFoundException;
+import com.filmflix.vodservice.utilities.mappers.UserMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,16 +19,16 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    public void registerUser(RegisterRequest registerRequest) {
+    public UserResponse registerUser(RegisterRequest registerRequest) {
         if (!registerRequest.getPassword().equals(registerRequest.getRepeatPassword()))
             throw new PasswordsDontMatchException();
-        userRepository.save(userMapper.mapToEntity(registerRequest)).getId();
+        return userMapper.mapToResponse(userRepository.save(userMapper.mapToEntity(registerRequest)));
     }
 
-    public void payStreamingPlan(String username){
+    public UserResponse payStreamingPlan(String username) {
         User user = getUser(username);
         user.setPlanPaid(true);
-        userRepository.save(user);
+        return (userMapper.mapToResponse(userRepository.save(user)));
     }
 
     public User getUser(String username) {
@@ -36,7 +36,7 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UserNotFoundException(username));
     }
 
-    public UserResponse getUserResponse(String username){
+    public UserResponse getUserResponse(String username) {
         return userMapper.mapToResponse(getUser(username));
     }
 

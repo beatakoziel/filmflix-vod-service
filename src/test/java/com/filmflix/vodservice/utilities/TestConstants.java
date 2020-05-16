@@ -9,4 +9,6 @@ public class TestConstants {
     public static final String OPINION_COMMENT_TEST = "comment";
     public static final String USER_TEST_EMAIL = "example@example.com";
     public static final String USER_TEST_PASSWORD = "password";
+    public static final String USER_WRONG_REPEAT_PASS_TEST = "repeat password";
+    public static final String USER_TEST_WRONG_EMAIL = "repeat password";
 }
