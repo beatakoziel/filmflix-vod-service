@@ -1,10 +1,11 @@
-package com.filmflix.vodservice.utilities;
+package com.filmflix.vodservice.utilities.mappers;
 
 import com.filmflix.vodservice.db.entities.User;
 import com.filmflix.vodservice.db.enums.UserRole;
 import com.filmflix.vodservice.db.repositories.UserRepository;
 import com.filmflix.vodservice.dtos.requests.RegisterRequest;
 import com.filmflix.vodservice.dtos.responses.UserResponse;
+import com.filmflix.vodservice.utilities.exceptions.UserAlreadyExistsException;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

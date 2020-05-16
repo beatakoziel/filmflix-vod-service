@@ -1,4 +1,4 @@
-package com.filmflix.vodservice.utilities;
+package com.filmflix.vodservice.utilities.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(Long userId) {

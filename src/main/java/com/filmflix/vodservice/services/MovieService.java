@@ -3,7 +3,7 @@ package com.filmflix.vodservice.services;
 import com.filmflix.vodservice.db.entities.Movie;
 import com.filmflix.vodservice.db.entities.Opinion;
 import com.filmflix.vodservice.db.repositories.MovieRepository;
-import com.filmflix.vodservice.utilities.MovieNotFoundException;
+import com.filmflix.vodservice.utilities.exceptions.MovieNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

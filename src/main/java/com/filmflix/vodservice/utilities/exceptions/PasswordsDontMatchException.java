@@ -1,4 +1,4 @@
-package com.filmflix.vodservice.utilities;
+package com.filmflix.vodservice.utilities.exceptions;
 
 public class PasswordsDontMatchException extends RuntimeException {
     public PasswordsDontMatchException() {

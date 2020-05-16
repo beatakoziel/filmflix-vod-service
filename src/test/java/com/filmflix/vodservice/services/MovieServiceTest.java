@@ -1,0 +1,59 @@
+package com.filmflix.vodservice.services;
+
+import com.filmflix.vodservice.db.entities.Movie;
+import com.filmflix.vodservice.db.entities.Opinion;
+import com.filmflix.vodservice.db.repositories.MovieRepository;
+import com.filmflix.vodservice.services.MovieService;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.filmflix.vodservice.utilities.TestBuilders.buildMovie;
+import static com.filmflix.vodservice.utilities.TestBuilders.buildOpinion;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
+public class MovieServiceTest {
+
+    private MovieService movieService;
+
+    @Mock
+    private MovieRepository movieRepository;
+
+    @Before
+    public void setUp() {
+        movieService = new MovieService(movieRepository);
+    }
+
+    @Before
+    public void init() {
+        Movie movie1 = buildMovie(1L);
+        Movie movie2 = buildMovie(2L);
+        Opinion opinion = buildOpinion();
+        movie1.getOpinions().add(opinion);
+        List<Movie> moviesList = new ArrayList<>();
+        moviesList.add(movie1);
+        moviesList.add(movie2);
+        when(movieRepository.findAll()).thenReturn(moviesList);
+        when(movieRepository.findById(1L)).thenReturn(java.util.Optional.of(movie1));
+    }
+
+    @Test
+    public void getMovies_ShouldReturnListWithTwoMovies() {
+        List<Movie> movies = movieService.getMovies();
+        assertThat(movies.size()).isEqualTo(2L);
+    }
+
+    @Test
+    public void getOpinions_shouldReturnListWithOneOpinion() {
+        List<Opinion> opinions = movieService.getMovieOpinions(1L);
+        assertThat(opinions.size()).isEqualTo(1L);
+    }
+
+}

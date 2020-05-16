@@ -1,4 +1,4 @@
-package com.filmflix.vodservice.utilities;
+package com.filmflix.vodservice.utilities.exceptions;
 
 public class MovieNotFoundException extends RuntimeException {
     public MovieNotFoundException(Long movieId) {
