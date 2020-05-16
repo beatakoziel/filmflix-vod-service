@@ -3,12 +3,12 @@ package com.filmflix.vodservice.services;
 import com.filmflix.vodservice.db.entities.Movie;
 import com.filmflix.vodservice.db.entities.Opinion;
 import com.filmflix.vodservice.db.repositories.MovieRepository;
-import com.filmflix.vodservice.services.MovieService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,10 @@ import static com.filmflix.vodservice.utilities.TestBuilders.buildOpinion;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringRunner.class)
 public class MovieServiceTest {
 
+    @InjectMocks
     private MovieService movieService;
 
     @Mock
@@ -28,11 +29,6 @@ public class MovieServiceTest {
 
     @Before
     public void setUp() {
-        movieService = new MovieService(movieRepository);
-    }
-
-    @Before
-    public void init() {
         Movie movie1 = buildMovie(1L);
         Movie movie2 = buildMovie(2L);
         Opinion opinion = buildOpinion();

@@ -2,6 +2,8 @@ package com.filmflix.vodservice.utilities;
 
 import com.filmflix.vodservice.db.entities.Movie;
 import com.filmflix.vodservice.db.entities.Opinion;
+import com.filmflix.vodservice.db.entities.User;
+import com.filmflix.vodservice.db.enums.UserRole;
 
 import java.util.ArrayList;
 
@@ -24,7 +26,18 @@ public class TestBuilders {
     public static Opinion buildOpinion() {
         return Opinion.builder()
                 .id(1L)
-                .comment(COMMENT_TEST)
+                .comment(OPINION_COMMENT_TEST)
                 .build();
     }
+    public static User buildUser() {
+        return User.builder()
+                .id(1L)
+                .email(USER_TEST_EMAIL)
+                .password(USER_TEST_PASSWORD)
+                .role(UserRole.USER)
+                .planPaid(false)
+                .blocked(false)
+                .build();
+    }
+
 }
