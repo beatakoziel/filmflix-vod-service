@@ -30,6 +30,7 @@ public class TestBuilders {
                 .comment(OPINION_COMMENT_TEST)
                 .build();
     }
+
     public static User buildUser() {
         return User.builder()
                 .id(1L)

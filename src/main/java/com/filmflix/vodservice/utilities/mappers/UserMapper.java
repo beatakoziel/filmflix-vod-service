@@ -33,7 +33,7 @@ public class UserMapper {
                 .build();
     }
 
-    public UserResponse mapToResponse(User user){
+    public UserResponse mapToResponse(User user) {
         return UserResponse.builder()
                 .email(user.getEmail())
                 .planPaid(user.isPlanPaid())

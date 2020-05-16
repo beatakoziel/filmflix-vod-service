@@ -12,7 +12,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
@@ -20,9 +24,9 @@ import org.springframework.web.bind.annotation.*;
         "http://localhost:8082", "http://localhost:8083"})
 public class AuthController {
 
-    private AuthenticationManager authenticationManager;
-    private UserService userDetailService;
-    private JwtUtil jwtTokenUtil;
+    private final AuthenticationManager authenticationManager;
+    private final UserService userDetailService;
+    private final JwtUtil jwtTokenUtil;
 
     @GetMapping("/test")
     public String test() {

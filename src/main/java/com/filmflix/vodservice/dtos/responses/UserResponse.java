@@ -8,6 +8,6 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class UserResponse {
-    private String email;
-    private boolean planPaid;
+    private final String email;
+    private final boolean planPaid;
 }
