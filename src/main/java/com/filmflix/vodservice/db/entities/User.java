@@ -46,9 +46,6 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private UserRole role;
 
-    @ManyToOne
-    private StreamingPlan streamingPlan;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<>();

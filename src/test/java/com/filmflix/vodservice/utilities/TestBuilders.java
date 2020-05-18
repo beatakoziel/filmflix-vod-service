@@ -1,10 +1,13 @@
 package com.filmflix.vodservice.utilities;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.filmflix.vodservice.db.entities.Movie;
 import com.filmflix.vodservice.db.entities.Opinion;
 import com.filmflix.vodservice.db.entities.User;
 import com.filmflix.vodservice.db.enums.UserRole;
+import com.filmflix.vodservice.dtos.requests.LoginRequest;
 import com.filmflix.vodservice.dtos.requests.RegisterRequest;
+import com.filmflix.vodservice.dtos.responses.UserResponse;
 
 import java.util.ArrayList;
 
@@ -48,6 +51,30 @@ public class TestBuilders {
                 .password(USER_TEST_PASSWORD)
                 .repeatPassword(password)
                 .build();
+    }
+
+    public static UserResponse buildUserResponse(){
+        return UserResponse.builder()
+                .email(USER_TEST_EMAIL)
+                .planPaid(false)
+                .build();
+    }
+
+    public static LoginRequest buildLoginRequest(){
+        return LoginRequest.builder()
+                .username(USER_TEST_EMAIL)
+                .password(USER_TEST_PASSWORD)
+                .build();
+    }
+
+    public static String asJsonString(final Object obj) {
+        try {
+            final ObjectMapper mapper = new ObjectMapper();
+            final String jsonContent = mapper.writeValueAsString(obj);
+            return jsonContent;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

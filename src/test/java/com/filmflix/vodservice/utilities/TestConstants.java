@@ -13,4 +13,5 @@ public class TestConstants {
     public static final String USER_WRONG_REPEAT_PASS_TEST = "repeat password";
     public static final String USER_TEST_WRONG_EMAIL = "repeat password";
     public static final String VIDEO_TEST_URL_RESOURCE = "file:videos/Sniper.mp4";
+    public static final String TEST_MESSAGE = "hello";
 }
