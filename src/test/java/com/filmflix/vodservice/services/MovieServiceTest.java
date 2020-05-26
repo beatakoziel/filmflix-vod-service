@@ -46,12 +46,6 @@ public class MovieServiceTest {
     public void getMovies_ShouldReturnListWithTwoMovies() {
         List<Movie> movies = movieService.getMovies();
         assertThat(movies.size()).isEqualTo(2L);
-/*        assertThat(movies.get(0).getId()).isEqualTo(1L);
-        assertThat(movies.get(0).getTitle()).isEqualTo(MOVIE_TEST_TITLE);
-        assertThat(movies.get(0).getOpinions()).isNotNull();
-        assertThat(movies.get(0).getDescription()).isEqualTo(MOVIE_TEST_DESCRIPTION);
-        assertThat(movies.get(0).getCoverUri()).isEqualTo(MOVIE_TEST_COVER_URI);
-        assertThat(movies.get(0).getResourceUri()).isEqualTo(MOVIE_TEST_RESOURCE_URI);*/
     }
 
     @Test

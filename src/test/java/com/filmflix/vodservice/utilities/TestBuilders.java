@@ -8,8 +8,11 @@ import com.filmflix.vodservice.db.enums.UserRole;
 import com.filmflix.vodservice.dtos.requests.LoginRequest;
 import com.filmflix.vodservice.dtos.requests.RegisterRequest;
 import com.filmflix.vodservice.dtos.responses.UserResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import static com.filmflix.vodservice.utilities.TestConstants.*;
 
@@ -31,6 +34,7 @@ public class TestBuilders {
         return Opinion.builder()
                 .id(1L)
                 .comment(OPINION_COMMENT_TEST)
+                .user(buildUser())
                 .build();
     }
 
@@ -53,14 +57,14 @@ public class TestBuilders {
                 .build();
     }
 
-    public static UserResponse buildUserResponse(){
+    public static UserResponse buildUserResponse() {
         return UserResponse.builder()
                 .email(USER_TEST_EMAIL)
                 .planPaid(false)
                 .build();
     }
 
-    public static LoginRequest buildLoginRequest(){
+    public static LoginRequest buildLoginRequest() {
         return LoginRequest.builder()
                 .username(USER_TEST_EMAIL)
                 .password(USER_TEST_PASSWORD)
@@ -75,6 +79,60 @@ public class TestBuilders {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static Authentication getAuthentication() {
+        return new Authentication() {
+            @Override
+            public boolean equals(Object another) {
+                return false;
+            }
+
+            @Override
+            public String toString() {
+                return null;
+            }
+
+            @Override
+            public int hashCode() {
+                return 0;
+            }
+
+            @Override
+            public String getName() {
+                return null;
+            }
+
+            @Override
+            public Collection<? extends GrantedAuthority> getAuthorities() {
+                return null;
+            }
+
+            @Override
+            public Object getCredentials() {
+                return null;
+            }
+
+            @Override
+            public Object getDetails() {
+                return null;
+            }
+
+            @Override
+            public Object getPrincipal() {
+                return null;
+            }
+
+            @Override
+            public boolean isAuthenticated() {
+                return false;
+            }
+
+            @Override
+            public void setAuthenticated(boolean b) throws IllegalArgumentException {
+
+            }
+        };
     }
 
 }

@@ -1,9 +1,12 @@
+/*
 package com.filmflix.vodservice.controllers;
 
 import com.filmflix.vodservice.configurations.security.jwt.JwtAuthenticationFilter;
 import com.filmflix.vodservice.configurations.security.jwt.JwtUtil;
-import com.filmflix.vodservice.dtos.requests.RegisterRequest;
+import com.filmflix.vodservice.db.repositories.UserRepository;
 import com.filmflix.vodservice.services.UserService;
+import com.filmflix.vodservice.utilities.mappers.UserMapper;
+import com.jayway.jsonpath.JsonPath;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,68 +23,66 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static com.filmflix.vodservice.utilities.TestBuilders.*;
-import static com.filmflix.vodservice.utilities.TestConstants.*;
-import static org.hamcrest.Matchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class AuthControllerTest {
+public class UserControllerTest {
 
-    private MockMvc mockMvc;
     @Autowired
-    private JwtUtil jwtUtil;
+    private MockMvc mockMvc;
     @MockBean
+    private UserRepository userRepository;
+    @MockBean
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
     private UserService userService;
     @Autowired
     private WebApplicationContext context;
     @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
-    @MockBean
-    private AuthenticationManager authenticationManager;
+    private AuthController authController;
+    @Autowired
+    private JwtUtil jwtUtil;
 
+    private String token;
 
     @Before
-    public void setUp() {
-        when(userService.loadUserByUsername(anyString())).thenReturn(buildUser());
-        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(getAuthentication());
-        when(userService.registerUser(any(RegisterRequest.class))).thenReturn(buildUserResponse());
+    public void setUp() throws Exception {
+        when(userRepository.findByEmail(anyString()))
+                .thenReturn(java.util.Optional.ofNullable(buildUser()));
+        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
+                .thenReturn(getAuthentication());
         mockMvc = MockMvcBuilders
                 .webAppContextSetup(context)
-                .addFilter(jwtAuthenticationFilter)
+                .addFilter(new JwtAuthenticationFilter())
                 .build();
-    }
-
-    @Test
-    public void test_shouldReturnTestMessage() throws Exception {
-        this.mockMvc.perform(get("/test"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString(TEST_MESSAGE)));
-    }
-
-    @Test
-    public void register_shouldReturnOkStatus() throws Exception {
-        this.mockMvc.perform(post("/register")
-                .content(asJsonString(buildRegisterRequest(USER_TEST_EMAIL, USER_TEST_PASSWORD)))
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated());
-    }
-
-    @Test
-    public void login_shouldReturnToken() throws Exception {
-        this.mockMvc.perform(post("/login")
+        token = "Bearer " + JsonPath.parse(this.mockMvc.perform(post("/login")
                 .content(asJsonString(buildLoginRequest()))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.jwt").isNotEmpty())
+                .andReturn()
+                .getResponse()
+                .getContentAsString()).read("$.jwt");
+    }
+
+    @Test
+    public void shouldGetUserData() throws Exception {
+        this.mockMvc.perform(get("/user")
+                .header("Authorization", token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
 }
+*/
