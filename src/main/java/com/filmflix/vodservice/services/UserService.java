@@ -25,6 +25,12 @@ public class UserService implements UserDetailsService {
         return userMapper.mapToResponse(userRepository.save(userMapper.mapToEntity(registerRequest)));
     }
 
+    public UserResponse changeUserPassword(String username, String newPassword) {
+        User user = getUser(username);
+        user.setPassword(userMapper.encryptPassword(newPassword));
+        return (userMapper.mapToResponse(userRepository.save(user)));
+    }
+
     public UserResponse payStreamingPlan(String username) {
         User user = getUser(username);
         user.setPlanPaid(true);

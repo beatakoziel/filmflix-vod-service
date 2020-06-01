@@ -5,11 +5,7 @@ import com.filmflix.vodservice.dtos.responses.UserResponse;
 import com.filmflix.vodservice.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -28,5 +24,10 @@ public class UserController {
     @PostMapping("/pay")
     public void addOpinion(Authentication authentication) {
         userService.payStreamingPlan(((User) authentication.getPrincipal()).getUsername());
+    }
+
+    @PostMapping("/password")
+    public void changePassword(Authentication authentication, @RequestBody String newPassword) {
+        userService.changeUserPassword(((User) authentication.getPrincipal()).getUsername(), newPassword);
     }
 }

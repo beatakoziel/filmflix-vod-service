@@ -39,4 +39,9 @@ public class UserMapper {
                 .planPaid(user.isPlanPaid())
                 .build();
     }
+
+    public String encryptPassword(String passwordToEncrypt){
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.encode(passwordToEncrypt);
+    }
 }
