@@ -1,0 +1,47 @@
+Temat projektu: Filmflix, czyli filmweb+netflix
+
+Adresy email:
+Beata Kozieł - beatainez.k@gmail.com
+Michał Olejko - michal.olejko2@gmail.com
+
+Kategorie użytkowników:
+ADMIN:
+Funkcjonalności:
+1.Dodawanie, usuwanie, modyfikacja, wyświetlanie filmów/seriali wraz z opisami
+2.Dostęp do użytkowników, blokowanie kont
+
+USER:
+Funkcjonalności:
+1.Spis filmów i seriali w kategoriach
+2.Oglądanie filmów i serialów
+3.Dodawanie opinii(gwiazdki lub inny sposób) do filmów
+4.Dodawanie komentarzy do odcinków
+
+Opcjonalnie:
+5.Możliwość pomijania czołówki jednorazowo/za każdym razem
+6.Pakiety i płatności
+7.Odtwarzanie od momentu zakończenia
+8.Dopasowanie filmów pod najczęściej oglądane kategorie
+9.Oznaczanie filmów jako obejrzane
+
+Wykorzystywane technologie:
+front-end: vue.js
+back-end: Java (Spring)
+baza danych: MySQL
+
+Skład zespołu:
+Beata Kozieł
+Michał Olejko
+
+Podział prac:
+Michał: ADMIN - CRUD do filmów i seriali, CRUD do kont użytkowników, panel logowania i rejestracji, panel administratora
+Beata: USER - panel startowy po zalogowaniu, CRUD do opinii, autoryzacja i uwierzytelnianie
+Do podziału po skończeniu powyższych pozostałe funkcjonalności.
+
+Realizowane tematy:
+"Inżynieria systemów informacyjnych" - Aplikacja do prowadzenia diety i zdrowego trybu życia
+"Podstawy inżynierii programowania" - Sieć restauracji
+
+Tematy prac inżynierskich:
+Beata Kozieł - nie wybrano
+Michał Olejko - nie wybrano
